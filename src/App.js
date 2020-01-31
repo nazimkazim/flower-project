@@ -1,21 +1,21 @@
-import React from 'react';
-import './App.css';
-import Home from '../src/pages/Home'
-import Rooms from '../src/pages/Rooms'
-import SingleRoom from '../src/pages/SingleRoom'
-import Error from '../src/pages/Error'
-import NavBar from '../src/components/NavBar'
-import { Route, Switch } from 'react-router-dom'
+import React from "react";
+import "./App.css";
+import Home from "../src/pages/Home";
+import Flowers from "../src/pages/Flowers";
+import SingleFlower from "../src/pages/SingleFlower";
+import Error from "../src/pages/Error";
+import NavBar from "../src/components/NavBar";
+import { Route, Switch } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <NavBar/>
+      <NavBar />
       <Switch>
-        <Route exact path="/" component={Home}/>
-        <Route exact path="/rooms" component={Rooms}/>
-        <Route exact path="/rooms/:slug" component={SingleRoom}/>
-        <Route exact component={Error}/>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/rooms" component={Flowers} />
+        <Route exact path="/rooms/:slug" component={SingleFlower} />
+        <Route exact component={Error} />
       </Switch>
     </>
   );

@@ -1,26 +1,25 @@
-import React from 'react'
-import RoomsFilter from './RoomsFilter'
-import RoomsList from './RoomsList'
-import {withRoomConsumer} from '../context'
-import Loading from './Loading'
+import React from "react";
+import FlowersFilter from "./FlowersFilter";
+import FlowersList from "./FlowersList";
+import { withFlowerConsumer } from "../context";
+import Loading from "./Loading";
 
-function RoomContainer({context}) {
-    const {loading, sortedRooms, rooms} = context;
+function FlowersContainer({ context }) {
+  const { loading, sortedFlowers, flowers } = context;
 
-    if (loading) {
-        return <Loading/>
-    } 
+  if (loading) {
+    return <Loading />;
+  }
 
-    return (
-        <>
-            <RoomsFilter rooms={rooms}  />
-            <RoomsList rooms={sortedRooms}  />
-        </>
-    )
+  return (
+    <>
+      <FlowersFilter flowers={flowers} />
+      <FlowersList flowers={sortedFlowers} />
+    </>
+  );
 }
 
-
-export default withRoomConsumer(RoomContainer)
+export default withFlowerConsumer(FlowersContainer);
 
 /* export default function RoomsContainer() {
     return (

@@ -1,51 +1,42 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 //import items from './data';
-import Client from './Contentful'
+import Client from "./Contentful";
 
+const FlowerContext = React.createContext();
 
-
-const RoomContext = React.createContext();
-
-
-
-class RoomProvider extends Component {
+class FlowerProvider extends Component {
   state = {
-    rooms: [],
-    sortedRooms: [],
-    featuredRooms: [],
+    flowers: [],
+    sortedFlowers: [],
+    featuredFlowers: [],
     loading: true,
     type: "all",
-    capacity: 1,
     price: 0,
     minPrice: 0,
-    maxSize: 0,
-    maxPrice: 0,
-    minSize: 0,
-    breakfast: false,
-    pets: false
+    maxPrice: 0
   };
 
   getData = async () => {
     try {
       let response = await Client.getEntries({
-        content_type: "flower-project"
+        content_type: "flowerProject"
       });
 
-      let rooms = this.formatData(response.items);
-      let featuredRooms = rooms.filter(room => room.featured === true);
+      let flowers = this.formatData(response.items);
+      let featuredFlowers = flowers.filter(flower => flower.featured === true);
 
-      let maxPrice = Math.max(...rooms.map(item => item.price));
-      let maxSize = Math.max(...rooms.map(item => item.size));
+      let maxPrice = Math.max(...flowers.map(item => item.price));
+      let maxSize = Math.max(...flowers.map(item => item.size));
 
       this.setState({
-        rooms,
-        featuredRooms,
-        sortedRooms: rooms,
+        flowers,
+        featuredFlowers,
+        sortedFlowers: flowers,
         loading: false,
         maxPrice,
         maxSize
       });
-      console.log(rooms);
+      console.log(flowers);
     } catch (error) {
       console.log(error);
     }
@@ -58,17 +49,19 @@ class RoomProvider extends Component {
   formatData(items) {
     let tempItems = items.map(item => {
       let id = item.sys.id;
-      let images = item.fields.images.map(image => image.fields.file.url);
-      let room = { ...item.fields, images, id };
-      return room;
+      let images =
+        item.fields.images &&
+        item.fields.images.map(image => image.fields.file.url);
+      let flower = { ...item.fields, images, id };
+      return flower;
     });
     return tempItems;
   }
 
-  getRoom = slug => {
-    let tempRooms = [...this.state.rooms];
-    const room = tempRooms.find(room => room.slug === slug);
-    return room;
+  getFlower = slug => {
+    let tempFlowers = [...this.state.flowers];
+    const flower = tempFlowers.find(flower => flower.slug === slug);
+    return flower;
   };
 
   handleChange = event => {
@@ -79,78 +72,53 @@ class RoomProvider extends Component {
       {
         [name]: value
       },
-      this.filterRooms
+      this.filterFlowers
     );
   };
 
-  filterRooms = () => {
-    let {
-      rooms,
-      type,
-      capacity,
-      price,
-      minSize,
-      minPrice,
-      maxPrice,
-      maxSize,
-      breakfast,
-      pets
-    } = this.state;
+  filterFlowers = () => {
+    let { flowers, type, price } = this.state;
 
-    let tempRooms = [...rooms];
+    let tempFlowers = [...flowers];
 
-    capacity = parseInt(capacity);
     price = parseInt(price);
 
     if (type !== "all") {
-      tempRooms = tempRooms.filter(room => room.type === type);
+      tempFlowers = tempFlowers.filter(flower => flower.type === type);
     }
 
-    if (capacity !== 1) {
-      tempRooms = tempRooms.filter(room => room.capacity >= capacity);
-    }
-
-    tempRooms = tempRooms.filter(room => room.price <= price);
-
-    tempRooms = tempRooms.filter(
-      room => room.size >= minSize && room.size <= maxSize
-    );
-
-    if (breakfast) {
-      tempRooms.filter(room => room.breakfast === true);
-    }
-
-    if (pets) {
-      tempRooms.filter(room => room.pets === true);
-    }
+    tempFlowers = tempFlowers.filter(flower => flower.price <= price);
 
     this.setState({
-      sortedRooms: tempRooms
+      sortedFlowers: tempFlowers
     });
   };
 
   render() {
     return (
-      <RoomContext.Provider
+      <FlowerContext.Provider
         value={{
           ...this.state,
-          getRoom: this.getRoom,
+          getFlower: this.getFlower,
           handleChange: this.handleChange
         }}
       >
         {this.props.children}
-      </RoomContext.Provider>
+      </FlowerContext.Provider>
     );
   }
 }
 
-const RoomConsumer = RoomContext.Consumer;
+const FlowerConsumer = FlowerContext.Consumer;
 
-export function withRoomConsumer(Component) {
-    return function ConsumerWrapper(props) {
-        return <RoomConsumer>{value => <Component {...props} context={value}/>}</RoomConsumer>
-
-    }
+export function withFlowerConsumer(Component) {
+  return function ConsumerWrapper(props) {
+    return (
+      <FlowerConsumer>
+        {value => <Component {...props} context={value} />}
+      </FlowerConsumer>
+    );
+  };
 }
 
-export {RoomProvider, RoomConsumer, RoomContext} 
+export { FlowerProvider, FlowerConsumer, FlowerContext };

@@ -1,14 +1,14 @@
 import React from "react";
 import { useContext } from "react";
-import { RoomContext } from "../context";
-import Title from "../components/Title";
+import { FlowerContext } from "../context";
+import Title from "./Title";
 
 const getUnique = (items, value) => {
-    return [...new Set(items.map(item => item[value]))]
-}
+  return [...new Set(items.map(item => item[value]))];
+};
 
-const RoomsFilter = ({rooms}) => {
-  const context = useContext(RoomContext);
+const FlowersFilter = ({ flowers }) => {
+  const context = useContext(FlowerContext);
   const {
     handleChange,
     type,
@@ -17,25 +17,32 @@ const RoomsFilter = ({rooms}) => {
     minPrice,
     maxPrice,
     minSize,
-    maxSize,
     breakfast,
     pets
   } = context;
   console.log(context);
 
-  let types = getUnique(rooms, 'type')
+  let types = getUnique(flowers, "type");
 
-  types = ['all', ...types]
+  types = ["all", ...types];
 
   types = types.map((item, index) => {
-    return <option value={item} key={index}>{item}</option>
-  })
+    return (
+      <option value={item} key={index}>
+        {item}
+      </option>
+    );
+  });
 
-  let people = getUnique(rooms, 'capacity')
+  let people = getUnique(flowers, "capacity");
 
   people = people.map((item, index) => {
-    return <option key={index} value={item}>{item}</option>
-  })
+    return (
+      <option key={index} value={item}>
+        {item}
+      </option>
+    );
+  });
   return (
     <section className="filter-conteiner">
       <Title title="search rooms" />
@@ -90,44 +97,36 @@ const RoomsFilter = ({rooms}) => {
               onChange={handleChange}
               className="size-input"
             />
-            <input
-              type="number"
-              name="maxSize"
-              id="size"
-              value={maxSize}
-              onChange={handleChange}
-              className="size-input"
-            />
           </div>
         </div>
         <div className="form-group">
-            <div className="single-extra">
-              <input
-                type="checkbox"
-                name="breakfast"
-                id="breakfast"
-                checked={breakfast}
-                onChange={handleChange}
-              />
-              <label htmlFor="breakfast">breakfast</label>
-            </div>
+          <div className="single-extra">
+            <input
+              type="checkbox"
+              name="breakfast"
+              id="breakfast"
+              checked={breakfast}
+              onChange={handleChange}
+            />
+            <label htmlFor="breakfast">breakfast</label>
           </div>
+        </div>
 
-          <div className="form-group">
-            <div className="single-extra">
-              <input
-                type="checkbox"
-                name="pets"
-                id="pets"
-                checked={pets}
-                onChange={handleChange}
-              />
-              <label htmlFor="pets">pets</label>
-            </div>
+        <div className="form-group">
+          <div className="single-extra">
+            <input
+              type="checkbox"
+              name="pets"
+              id="pets"
+              checked={pets}
+              onChange={handleChange}
+            />
+            <label htmlFor="pets">pets</label>
           </div>
+        </div>
       </form>
     </section>
   );
 };
 
-export default RoomsFilter;
+export default FlowersFilter;
