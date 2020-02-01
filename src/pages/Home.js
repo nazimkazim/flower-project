@@ -10,11 +10,11 @@ const Home = () => {
     <>
       <Hero>
         <Banner
-          title="luxurious rooms"
-          subtitle="deluxe rooms starts from 299$"
+          title="обаятельные цветы"
+          subtitle="великолепные цветы от 3000 тенге"
         >
-          <Link to="/rooms" className="btn-primary">
-            Our rooms
+          <Link to="/flowers" className="btn-primary">
+            <button className="button is-link">Наши цветы</button>
           </Link>
         </Banner>
       </Hero>

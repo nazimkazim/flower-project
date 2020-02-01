@@ -14,7 +14,7 @@ export default class FeaturedFlowers extends Component {
 
     return (
       <section className="featured-rooms">
-        <Title title="Featured Room" />
+        <Title title="Самые популярные цветы" />
         <div className="featured-rooms-center">
           {loading ? <Loading /> : flowers}
         </div>
