@@ -12,12 +12,10 @@ function App() {
     <>
       <NavBar />
       <Switch>
-        <div className="container is-fluid">
-          <Route exact path="/" component={Home} />
-          <Route exact path="/flowers" component={Flowers} />
-          <Route exact path="/flowers/:slug" component={SingleFlower} />
-          <Route exact component={Error} />
-        </div>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/flowers" component={Flowers} />
+        <Route exact path="/flowers/:slug" component={SingleFlower} />
+        <Route exact component={Error} />
       </Switch>
     </>
   );

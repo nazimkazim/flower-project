@@ -13,7 +13,15 @@
   padding: 30px;
 }
 
-.section-title {
+.service-title {
   min-width: 30px;
   margin: 0 auto;
+}
+
+.heading img {
+  width: 50px;
+}
+
+.service-columns {
+  padding: 30px;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 export default function Banner({ children, title, subtitle }) {
   return (
-    <section className="hero is-primary is-medium hero-c">
+    <section className="hero is-primary is-medium hero-c is-large">
       <div className="hero-body">
         <div className="has-text-centered">
           <h1 className="title">{title}</h1>
