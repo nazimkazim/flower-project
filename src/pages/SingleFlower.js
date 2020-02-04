@@ -36,16 +36,17 @@ export default class SingleFlower extends Component {
     const { name, description, price, extras, images } = flower;
     return (
       <>
-        <StyledHero img={images[0] || this.state.defaultBcg}>
+        <StyledHero img={(images && images[0]) || this.state.defaultBcg}>
           <Banner title={`${name}`}>
             <Link to="/flowers">вернуться к цветам</Link>
           </Banner>
         </StyledHero>
         <>
           <Carousel swipeable="true" showArrows="true">
-            {images.map((item, index) => {
-              return <img key={index} src={item} alt="" />;
-            })}
+            {images &&
+              images.map((item, index) => {
+                return <img key={index} src={item} alt="" />;
+              })}
           </Carousel>
 
           <article className="info">

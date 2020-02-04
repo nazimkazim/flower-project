@@ -3,7 +3,7 @@ import React from "react";
 export default function Title({ title }) {
   return (
     <>
-      <h4>{title}</h4>
+      <p className="is-size-4 has-text-black-bis has-text-centered">{title}</p>
     </>
   );
 }

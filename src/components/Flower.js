@@ -6,18 +6,26 @@ import PropTypes from "prop-types";
 export default function Flower({ flower }) {
   const { name, slug, images, price } = flower;
   return (
-    <article className="room">
-      <div className="img-container">
-        <img src={images[0] || defaultImg} alt="single room" />
-        <div className="price-top">
-          <h6>₸{price}</h6>
+    <div className="column is-one-quarter">
+      <div className="card feature-flower-card">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src={(images && images[0]) || defaultImg} alt="single room" />
+          </figure>
         </div>
-        <Link to={`/flowers/${slug}`} className="btn-primary room-link">
-          подробнее
-        </Link>
+        <div className="card-content">
+          <div className="media-content">
+            <div className="price-top">
+              <h6>₸{price}</h6>
+            </div>
+            <p className="room-info">{name}</p>
+            <Link to={`/flowers/${slug}`} className="button is-link">
+              подробнее
+            </Link>
+          </div>
+        </div>
       </div>
-      <p className="room-info">{name}</p>
-    </article>
+    </div>
   );
 }
 
