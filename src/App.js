@@ -5,6 +5,7 @@ import Flowers from "../src/pages/Flowers";
 import SingleFlower from "../src/pages/SingleFlower";
 import Error from "../src/pages/Error";
 import NavBar from "../src/components/NavBar";
+import Footer from "../src/components/Footer";
 import { Route, Switch } from "react-router-dom";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/flowers/:slug" component={SingleFlower} />
         <Route exact component={Error} />
       </Switch>
+      <Footer />
     </>
   );
 }

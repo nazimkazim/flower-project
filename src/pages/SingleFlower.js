@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import defaultBcg from "../images/room-1.jpeg";
-import Banner from "../components/Banner";
 import { Link } from "react-router-dom";
 import { FlowerContext } from "../context";
-import StyledHero from "../components/StyledHero";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 
@@ -35,21 +33,20 @@ export default class SingleFlower extends Component {
 
     const { name, description, price, extras, images } = flower;
     return (
-      <>
-        <StyledHero img={(images && images[0]) || this.state.defaultBcg}>
-          <Banner title={`${name}`}>
-            <Link to="/flowers">вернуться к цветам</Link>
-          </Banner>
-        </StyledHero>
-        <>
-          <Carousel swipeable="true" showArrows="true">
-            {images &&
-              images.map((item, index) => {
-                return <img key={index} src={item} alt="" />;
-              })}
-          </Carousel>
-
+      <div className="columns">
+        <div className="column carousel-column">
+          <div className="carousel-container">
+            <Carousel swipeable="true" showArrows="true">
+              {images &&
+                images.map((item, index) => {
+                  return <img key={index} src={item} alt="" />;
+                })}
+            </Carousel>
+          </div>
+        </div>
+        <div className="column">
           <article className="info">
+            <p>{name}</p>
             <h3>Details</h3>
             <p>{description}</p>
           </article>
@@ -64,8 +61,8 @@ export default class SingleFlower extends Component {
               return <li key={index}>- {item}</li>;
             })}
           </ul>
-        </>
-      </>
+        </div>
+      </div>
     );
   }
 }
