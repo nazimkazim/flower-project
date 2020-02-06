@@ -44,11 +44,22 @@
 
 .carousel-column {
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
 .carousel-container {
   max-width: 400px;
   min-height: 400px;
+  margin-top: 100px;
+}
+
+.info-column {
+  display: flex;
+  justify-content: center;
+}
+
+.single-flower-info-container {
+  width: 400px;
+  min-height: 400px;
+  margin-top: 100px;
 }

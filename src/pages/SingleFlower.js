@@ -36,7 +36,7 @@ export default class SingleFlower extends Component {
       <div className="columns">
         <div className="column carousel-column">
           <div className="carousel-container">
-            <Carousel swipeable="true" showArrows="true">
+            <Carousel swipeable={true} showArrows={true}>
               {images &&
                 images.map((item, index) => {
                   return <img key={index} src={item} alt="" />;
@@ -44,23 +44,25 @@ export default class SingleFlower extends Component {
             </Carousel>
           </div>
         </div>
-        <div className="column">
-          <article className="info">
-            <p>{name}</p>
-            <h3>Details</h3>
-            <p>{description}</p>
-          </article>
-          <article className="info">
-            <h3>Info</h3>
-            <h6>price: ${price}</h6>
-          </article>
-
-          <h6>Extras</h6>
-          <ul className="extras">
-            {extras.map((item, index) => {
-              return <li key={index}>- {item}</li>;
-            })}
-          </ul>
+        <div className="column info-column">
+          <div className="single-flower-info-container card">
+            <div className="card-content">
+              <p className="has-text-centered is-size-3">{name}</p>
+              <p className="has-text-centered">{description}</p>
+              <hr></hr>
+              <div className="tags are-medium">
+                {extras.map((item, index) => {
+                  return (
+                    <span className="tag is-primary" key={index}>
+                      {item}mm
+                    </span>
+                  );
+                })}
+              </div>
+              <hr></hr>
+              <h6>${price}</h6>
+            </div>
+          </div>
         </div>
       </div>
     );

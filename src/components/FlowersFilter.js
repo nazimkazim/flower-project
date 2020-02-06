@@ -44,7 +44,7 @@ const FlowersFilter = ({ flowers }) => {
     );
   });
   return (
-    <section className="filter-conteiner">
+    <section className="filter-container">
       <Title title="найти цветы" />
       <form className="filter-form">
         <div className="form-group">
