@@ -11,8 +11,8 @@ const FlowersList = ({ flowers }) => {
   }
 
   return (
-    <section className="roomslist">
-      <div className="roomslist-center">
+    <section className="featured-flowers">
+      <div className="columns featured-flowers-center is-multiline">
         {flowers.map(item => {
           return <Flower key={item.id} flower={item} />;
         })}

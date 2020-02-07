@@ -47,7 +47,9 @@ export default class SingleFlower extends Component {
         <div className="column info-column">
           <div className="single-flower-info-container card">
             <div className="card-content">
-              <p className="has-text-centered is-size-3">{name}</p>
+              <p className="has-text-centered is-size-3 is-capitalized">
+                {name}
+              </p>
               <p className="has-text-centered">{description}</p>
               <hr></hr>
               <div className="tags are-medium">
@@ -60,7 +62,9 @@ export default class SingleFlower extends Component {
                 })}
               </div>
               <hr></hr>
-              <h6>${price}</h6>
+              <h6 className="has-text-weight-semibold has-text-success is-size-4">
+                ₸{price}
+              </h6>
             </div>
           </div>
         </div>

@@ -9,22 +9,12 @@ const getUnique = (items, value) => {
 
 const FlowersFilter = ({ flowers }) => {
   const context = useContext(FlowerContext);
-  const {
-    handleChange,
-    type,
-    capacity,
-    price,
-    minPrice,
-    maxPrice,
-    minSize,
-    breakfast,
-    pets
-  } = context;
+  const { handleChange, type, price, minPrice, maxPrice, minSize } = context;
   console.log(context);
 
   let types = getUnique(flowers, "type");
 
-  types = ["all", ...types];
+  types = ["все", ...types];
 
   types = types.map((item, index) => {
     return (
@@ -34,99 +24,87 @@ const FlowersFilter = ({ flowers }) => {
     );
   });
 
-  let people = getUnique(flowers, "capacity");
-
-  people = people.map((item, index) => {
-    return (
-      <option key={index} value={item}>
-        {item}
-      </option>
-    );
-  });
   return (
     <section className="filter-container">
       <Title title="найти цветы" />
-      <form className="filter-form">
-        <div className="form-group">
-          <label htmlFor="type">room type</label>
-          <select
-            name="type"
-            id="type"
-            value={type}
-            className="form-control"
-            onChange={handleChange}
-          >
-            {types}
-          </select>
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="capacity">Guests</label>
-          <select
-            name="capacity"
-            id="capacity"
-            value={capacity}
-            className="form-control"
-            onChange={handleChange}
-          >
-            {people}
-          </select>
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="price">Room Price ${price}</label>
-          <input
-            type="range"
-            min={minPrice}
-            max={maxPrice}
-            name="price"
-            value={price}
-            onChange={handleChange}
-            className="form-control"
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="size">room size</label>
-          <div className="size-inputs">
-            <input
-              type="number"
-              name="minSize"
-              id="size"
-              value={minSize}
+      <nav className="level is-mobile">
+        <div className="level-item has-text-centered">
+          <div className="control">
+            <p className="heading">
+              <label htmlFor="type">тип цветов</label>
+            </p>
+            <select
+              name="type"
+              id="type"
+              value={type}
+              className="input"
               onChange={handleChange}
-              className="size-input"
+            >
+              {types}
+            </select>
+          </div>
+        </div>
+        <div className="level-item has-text-centered">
+          <div className="control">
+            <p className="heading">
+              <label htmlFor="price">цена ${price}</label>
+            </p>
+            <input
+              type="range"
+              min={minPrice}
+              max={maxPrice}
+              name="price"
+              value={price}
+              onChange={handleChange}
+              className="input"
             />
           </div>
         </div>
-        <div className="form-group">
-          <div className="single-extra">
-            <input
-              type="checkbox"
-              name="breakfast"
-              id="breakfast"
-              checked={breakfast}
-              onChange={handleChange}
-            />
-            <label htmlFor="breakfast">breakfast</label>
+        <div className="level-item has-text-centered">
+          <div className="control">
+            <label htmlFor="size">размер цветов</label>
+            <div className="size-inputs">
+              <input
+                type="number"
+                name="minSize"
+                id="size"
+                value={minSize}
+                onChange={handleChange}
+                className="input"
+              />
+            </div>
           </div>
         </div>
-
-        <div className="form-group">
-          <div className="single-extra">
-            <input
-              type="checkbox"
-              name="pets"
-              id="pets"
-              checked={pets}
-              onChange={handleChange}
-            />
-            <label htmlFor="pets">pets</label>
-          </div>
-        </div>
-      </form>
+      </nav>
     </section>
   );
 };
 
 export default FlowersFilter;
+
+/* <nav class="level is-mobile">
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Tweets</p>
+      <p class="title">3,456</p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Following</p>
+      <p class="title">123</p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Followers</p>
+      <p class="title">456K</p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Likes</p>
+      <p class="title">789</p>
+    </div>
+  </div>
+</nav> */
