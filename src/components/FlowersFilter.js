@@ -9,7 +9,7 @@ const getUnique = (items, value) => {
 
 const FlowersFilter = ({ flowers }) => {
   const context = useContext(FlowerContext);
-  const { handleChange, type, price, minPrice, maxPrice } = context;
+  const { handleChange, type, price, minPrice, maxPrice, available } = context;
   console.log(context);
 
   let types = getUnique(flowers, "type");
@@ -57,6 +57,19 @@ const FlowersFilter = ({ flowers }) => {
               value={price}
               onChange={handleChange}
               className="input"
+            />
+          </div>
+        </div>
+        <div className="level-item has-text-centered">
+          <div className="control">
+            <p className="heading">
+              <label htmlFor="price">в наличии</label>
+            </p>
+            <input
+              type="checkbox"
+              name="available"
+              checked={available}
+              onChange={handleChange}
             />
           </div>
         </div>

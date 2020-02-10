@@ -62,3 +62,10 @@
   min-height: 400px;
   margin-top: 100px;
 }
+
+.tag-available {
+  position: absolute;
+  z-index: 10;
+  left: 5px;
+  top: 5px;
+}

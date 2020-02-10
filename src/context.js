@@ -13,7 +13,8 @@ class FlowerProvider extends Component {
     type: "all",
     price: 0,
     minPrice: 0,
-    maxPrice: 0
+    maxPrice: 0,
+    available: false
   };
 
   getData = async () => {
@@ -77,7 +78,7 @@ class FlowerProvider extends Component {
   };
 
   filterFlowers = () => {
-    let { flowers, type, price } = this.state;
+    let { flowers, type, price, available } = this.state;
 
     let tempFlowers = [...flowers];
 
@@ -88,6 +89,10 @@ class FlowerProvider extends Component {
     }
 
     tempFlowers = tempFlowers.filter(flower => flower.price <= price);
+
+    if (available) {
+      tempFlowers.filter(flower => flower.available === true);
+    }
 
     this.setState({
       sortedFlowers: tempFlowers
