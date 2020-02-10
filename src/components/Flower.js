@@ -10,7 +10,7 @@ export default function Flower({ flower }) {
       <div className="card feature-flower-card">
         <div class="card-image">
           {available ? (
-            <span className="tag tag-available">в наличии</span>
+            <span className="tag tag-available is-warning">в наличии</span>
           ) : (
             <span className="tag tag-available">нет в наличии</span>
           )}
@@ -24,7 +24,7 @@ export default function Flower({ flower }) {
               <h6>₸{price}</h6>
             </div>
             <p className="room-info">{name}</p>
-            <Link to={`/flowers/${slug}`} className="button is-link">
+            <Link to={`/flowers/${slug}`} className="button is-link is-small">
               подробнее
             </Link>
           </div>

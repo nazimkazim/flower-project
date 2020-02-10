@@ -63,12 +63,12 @@ const FlowersFilter = ({ flowers }) => {
         <div className="level-item has-text-centered">
           <div className="control">
             <p className="heading">
-              <label htmlFor="price">в наличии</label>
+              <label htmlFor="available">в наличии</label>
             </p>
             <input
               type="checkbox"
               name="available"
-              checked={available}
+              value={available}
               onChange={handleChange}
             />
           </div>
