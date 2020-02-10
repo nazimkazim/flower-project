@@ -83,7 +83,7 @@ class FlowerProvider extends Component {
 
     price = parseInt(price);
 
-    if (type !== "all") {
+    if (type !== "все") {
       tempFlowers = tempFlowers.filter(flower => flower.type === type);
     }
 

@@ -4,9 +4,11 @@ import Flower from "./Flower";
 const FlowersList = ({ flowers }) => {
   if (flowers.length === 0) {
     return (
-      <div className="empty-search">
-        <h3>unfortunately no flowers matched your search parameters</h3>
-      </div>
+      <article class="message">
+        <div class="message-body">
+          к сожалению цветов с такими параметрами нет
+        </div>
+      </article>
     );
   }
 

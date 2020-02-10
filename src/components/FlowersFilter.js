@@ -9,7 +9,7 @@ const getUnique = (items, value) => {
 
 const FlowersFilter = ({ flowers }) => {
   const context = useContext(FlowerContext);
-  const { handleChange, type, price, minPrice, maxPrice, minSize } = context;
+  const { handleChange, type, price, minPrice, maxPrice } = context;
   console.log(context);
 
   let types = getUnique(flowers, "type");
@@ -27,7 +27,7 @@ const FlowersFilter = ({ flowers }) => {
   return (
     <section className="filter-container">
       <Title title="найти цветы" />
-      <nav className="level is-mobile">
+      <nav className="level">
         <div className="level-item has-text-centered">
           <div className="control">
             <p className="heading">
@@ -60,51 +60,9 @@ const FlowersFilter = ({ flowers }) => {
             />
           </div>
         </div>
-        <div className="level-item has-text-centered">
-          <div className="control">
-            <label htmlFor="size">размер цветов</label>
-            <div className="size-inputs">
-              <input
-                type="number"
-                name="minSize"
-                id="size"
-                value={minSize}
-                onChange={handleChange}
-                className="input"
-              />
-            </div>
-          </div>
-        </div>
       </nav>
     </section>
   );
 };
 
 export default FlowersFilter;
-
-/* <nav class="level is-mobile">
-  <div class="level-item has-text-centered">
-    <div>
-      <p class="heading">Tweets</p>
-      <p class="title">3,456</p>
-    </div>
-  </div>
-  <div class="level-item has-text-centered">
-    <div>
-      <p class="heading">Following</p>
-      <p class="title">123</p>
-    </div>
-  </div>
-  <div class="level-item has-text-centered">
-    <div>
-      <p class="heading">Followers</p>
-      <p class="title">456K</p>
-    </div>
-  </div>
-  <div class="level-item has-text-centered">
-    <div>
-      <p class="heading">Likes</p>
-      <p class="title">789</p>
-    </div>
-  </div>
-</nav> */
