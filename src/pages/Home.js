@@ -10,8 +10,8 @@ const Home = () => {
     <>
       <Hero>
         <Banner
-          title="обаятельные цветы"
-          subtitle="великолепные цветы от 3000 тенге"
+          title="Цветы на любой случай жизни"
+          subtitle="оформим цветы по вашему желанию"
         >
           <Link to="/flowers" className="btn-primary">
             <button className="button is-link">Наши цветы</button>

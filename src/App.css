@@ -69,3 +69,13 @@
   left: 5px;
   top: 5px;
 }
+
+.footer-city-list,
+.footer-services-list {
+  list-style-type: none !important;
+  margin-left: 0 !important;
+}
+
+.footer-sm-img {
+  width: 20px;
+}
