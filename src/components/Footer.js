@@ -42,10 +42,10 @@ export default class Footer extends Component {
             </div>
             <div className="column is-4">
               <h3>Контакты</h3>
-              <ul className="footer-city-list">
+              <div className="columns footer-sm-wrapper">
                 {this.state.items[1].media &&
                   this.state.items[1].media.map((item, index) => (
-                    <li key={index}>
+                    <div className="column" key={index}>
                       <a
                         href={item.link}
                         target="_blank"
@@ -57,9 +57,9 @@ export default class Footer extends Component {
                           alt={item.name}
                         />
                       </a>
-                    </li>
+                    </div>
                   ))}
-              </ul>
+              </div>
             </div>
             <div className="column is-4">
               <h3>Услуги</h3>

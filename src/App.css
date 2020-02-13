@@ -79,3 +79,8 @@
 .footer-sm-img {
   width: 20px;
 }
+
+.footer-sm-wrapper {
+  width: 40%;
+  margin: 0 auto;
+}
