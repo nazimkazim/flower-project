@@ -8,13 +8,13 @@ export default function Flower({ flower }) {
   return (
     <div className="column is-one-quarter">
       <div className="card feature-flower-card">
-        <div class="card-image">
+        <div className="card-image">
           {available ? (
             <span className="tag tag-available is-warning">в наличии</span>
           ) : (
             <span className="tag tag-available">нет в наличии</span>
           )}
-          <figure class="image is-4by3">
+          <figure className="image is-4by3">
             <img src={(images && images[0]) || defaultImg} alt="single room" />
           </figure>
         </div>

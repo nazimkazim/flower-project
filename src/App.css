@@ -1,6 +1,6 @@
 .hero-c {
   background-color: #fff4e6;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 800'%3E%3Cg fill-opacity='0.85'%3E%3Ccircle fill='%23fff4e6' cx='400' cy='400' r='600'/%3E%3Ccircle fill='%23e7c8bc' cx='400' cy='400' r='500'/%3E%3Ccircle fill='%23cd9da0' cx='400' cy='400' r='400'/%3E%3Ccircle fill='%23a87790' cx='400' cy='400' r='300'/%3E%3Ccircle fill='%23735886' cx='400' cy='400' r='200'/%3E%3Ccircle fill='%23204277' cx='400' cy='400' r='100'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("./images/backAlb.jpeg");
   background-attachment: fixed;
   background-size: cover;
 }
@@ -20,6 +20,10 @@
 
 .heading img {
   width: 50px;
+}
+
+.services-title {
+  font-family: "Caveat Brush", cursive;
 }
 
 .service-columns {
@@ -83,4 +87,9 @@
 .footer-sm-wrapper {
   width: 40%;
   margin: 0 auto;
+}
+
+.primary-title,
+.secondary-title {
+  font-family: "Crimson Text", serif;
 }

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-//import logo from "../images/logo.svg";
-//import { FaAlignRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import whatsapp from "../images/whatsapp.svg";
 
 class NavBar extends Component {
   render() {
@@ -52,12 +51,12 @@ class NavBar extends Component {
               <>
                 <div
                   className="navbar-item"
-                  style={{ display: "flex", flexDirection: "column" }}
+                  style={{ display: "flex", flexDirection: "row" }}
                 >
                   <span>
-                    <i className="fa fa-phone-square" aria-hidden="true"></i>
-                    +7-777-348-6518
+                    <img src={whatsapp} alt="whatsapp icon" />
                   </span>
+                  <span>+7-701-121-4114</span>
                 </div>
               </>
             </div>

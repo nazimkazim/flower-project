@@ -7,7 +7,7 @@ export default function Error() {
   return (
     <Hero>
       <Banner title="404" subtitle="страница не найдена">
-        <Link to="/" className="btn-primary">
+        <Link to="/" className="button is-link">
           Вернуться на главную страницу
         </Link>
       </Banner>

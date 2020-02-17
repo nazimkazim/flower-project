@@ -8,7 +8,10 @@ const Flowers = () => {
   return (
     <>
       <Hero hero="roomsHero">
-        <Banner title="наши цветы">
+        <Banner
+          title="Быстрая доставка. Индивидуальный подход к каждому гостю."
+          subtitle="Будем рады оформить букет из живых цветов для любого события."
+        >
           <Link to="/" className="btn-primary">
             <button className="button is-link">на главную страницу</button>
           </Link>

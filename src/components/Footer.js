@@ -37,7 +37,9 @@ export default class Footer extends Component {
               <h3>Города</h3>
               <ul className="footer-city-list">
                 {this.state.items[0].cities &&
-                  this.state.items[0].cities.map(item => <li>{item}</li>)}
+                  this.state.items[0].cities.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
               </ul>
             </div>
             <div className="column is-4">
@@ -65,8 +67,8 @@ export default class Footer extends Component {
               <h3>Услуги</h3>
               <ul className="footer-services-list">
                 {this.state.items[2].services &&
-                  this.state.items[2].services.map(item => (
-                    <li>
+                  this.state.items[2].services.map((item, index) => (
+                    <li key={index}>
                       <Link to={item.link} style={{ color: "rgb(54,54,54)" }}>
                         {item.name}
                       </Link>
