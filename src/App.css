@@ -93,3 +93,40 @@
 .secondary-title {
   font-family: "Crimson Text", serif;
 }
+
+a {
+  color: black;
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    min-height: 300px;
+    align-items: center;
+  }
+
+  .featured-flowers {
+    padding: 50px;
+  }
+
+  .hero-title {
+    margin-top: 40px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .featured-flowers {
+    padding: 50px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .featured-flowers {
+    padding: 50px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .featured-flowers {
+    padding: 50px;
+  }
+}

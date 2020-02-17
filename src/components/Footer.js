@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export default class Footer extends Component {
   state = {
     items: [
-      { cities: ["Алматы", "Атырау", "Нур-султан"] },
+      { cities: ["Алматы"] },
       {
         media: [
           { name: "facebook", img: facebook, link: "www.facebook.com/albina" },

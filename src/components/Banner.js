@@ -16,7 +16,7 @@ export default function Banner({ children, title, subtitle }) {
         <div className="has-text-centered">
           <StyleRoot>
             <h1
-              className="title has-text-black-bis primary-title"
+              className="title hero-title has-text-black-bis primary-title"
               style={styles.fadeIn}
             >
               {title}
