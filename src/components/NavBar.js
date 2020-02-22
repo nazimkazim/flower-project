@@ -36,6 +36,9 @@ export default class NavBar extends Component {
               <Navbar.Item>
                 <Link to="/me">О нас</Link>
               </Navbar.Item>
+              <Navbar.Item>
+                <Link to="/blogs">Блог</Link>
+              </Navbar.Item>
             </Navbar.Container>
             <Navbar.Container position="end">
               <Navbar.Item>

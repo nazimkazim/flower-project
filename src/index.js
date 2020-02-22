@@ -5,12 +5,15 @@ import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { FlowerProvider } from "./context";
+import { BlogProvider } from "./contextBlog";
 
 ReactDOM.render(
   <FlowerProvider>
-    <Router>
-      <App />
-    </Router>
+    <BlogProvider>
+      <Router>
+        <App />
+      </Router>
+    </BlogProvider>
   </FlowerProvider>,
   document.getElementById("root")
 );
