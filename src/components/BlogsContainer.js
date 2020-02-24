@@ -6,13 +6,15 @@ import Loading from "./Loading";
 function BlogsContainer({ context }) {
   const { loading, blogs } = context;
 
-  if (loading) {
-    return <Loading />;
-  }
-
   return (
     <>
-      <BlogsList blogs={blogs} />
+      {loading ? (
+        <Loading words="Блоги загружаются" />
+      ) : (
+        <>
+          <BlogsList blogs={blogs} />
+        </>
+      )}
     </>
   );
 }

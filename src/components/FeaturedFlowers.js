@@ -16,7 +16,7 @@ export default class FeaturedFlowers extends Component {
       <section className="featured-flowers">
         <Title title="Самые популярные цветы" />
         <div className="columns featured-flowers-center is-multiline">
-          {loading ? <Loading /> : flowers}
+          {loading ? <Loading words="цветы загружаются" /> : flowers}
         </div>
       </section>
     );

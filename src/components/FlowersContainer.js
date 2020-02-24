@@ -7,14 +7,14 @@ import Loading from "./Loading";
 function FlowersContainer({ context }) {
   const { loading, sortedFlowers, flowers } = context;
 
-  if (loading) {
-    return <Loading />;
-  }
-
   return (
     <>
       <FlowersFilter flowers={flowers} />
-      <FlowersList flowers={sortedFlowers} />
+      {loading ? (
+        <Loading words="цветы загружаются" />
+      ) : (
+        <FlowersList flowers={sortedFlowers} />
+      )}
     </>
   );
 }

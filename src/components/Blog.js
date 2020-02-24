@@ -2,32 +2,48 @@ import React from "react";
 import { Link } from "react-router-dom";
 import defaultImg from "../images/room-1.jpeg";
 import PropTypes from "prop-types";
-
+import moment from "moment";
 export default function Blog({ blog }) {
-  const { header, slub, extraPictures, date } = blog;
+  const { header, slub, extraPictures, date, description } = blog;
   return (
-    <div className="column is-one-quarter">
-      <div className="card feature-flower-card">
-        <div className="card-image">
-          <figure className="image is-4by3">
+    <div className="column is-full">
+      <article class="media">
+        <figure class="media-left">
+          <p class="image is-128x128">
             <img
               src={(extraPictures && extraPictures[0]) || defaultImg}
-              alt="single room"
+              alt=""
             />
-          </figure>
-        </div>
-        <div className="card-content">
-          <div className="media-content">
-            <div className="price-top">
-              <h6>₸{date}</h6>
-            </div>
-            <p className="room-info">{header}</p>
-            <Link to={`/blogs/${slub}`} className="button is-link is-small">
-              подробнее
-            </Link>
+          </p>
+        </figure>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong>
+                <Link to={`/blogs/${slub}`}>{header}</Link>
+              </strong>
+              <br />
+              <small>{moment(date).format("MMM Do YY")}</small>
+              <br />
+              {description.slice(0, 300) + "..."}
+            </p>
           </div>
+          <nav class="level is-mobile">
+            <div class="level-left">
+              <span class="level-item">
+                <span class="icon is-small">
+                  <i class="fas fa-retweet"></i>
+                </span>
+              </span>
+              <span class="level-item">
+                <span class="icon is-small">
+                  <i class="fas fa-heart"></i>
+                </span>
+              </span>
+            </div>
+          </nav>
         </div>
-      </div>
+      </article>
     </div>
   );
 }
@@ -35,7 +51,7 @@ export default function Blog({ blog }) {
 Blog.propTypes = {
   blogs: PropTypes.shape({
     header: PropTypes.string.isRequired,
-    slug: PropTypes.string.isRequired,
+    slub: PropTypes.string.isRequired,
     extraPictures: PropTypes.arrayOf(PropTypes.string),
     date: PropTypes.number.isRequired
   })
