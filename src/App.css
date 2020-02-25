@@ -7,8 +7,6 @@
 
 .hero-blog-bck-img {
   background-color: #fff4e6;
-  background-image: url("./images/blog-hero-bck.jpg");
-  background-attachment: fixed;
   background-size: cover;
 }
 

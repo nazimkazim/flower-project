@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { BlogContext } from "../contextBlog";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import moment from "moment";
 
 export default class SingleBlog extends Component {
   constructor(props) {
@@ -31,36 +32,39 @@ export default class SingleBlog extends Component {
       );
     }
 
-    const { header, description, date, extraPictures } = blog;
+    const { header, description, date, extraPictures, mainPicture } = blog;
     return (
-      <div className="columns">
-        <div className="column carousel-column">
-          <div className="carousel-container">
-            <Carousel swipeable={true} showArrows={true}>
-              {extraPictures &&
-                extraPictures.map((item, index) => {
-                  return <img key={index} src={item} alt="" />;
-                })}
-            </Carousel>
-          </div>
-        </div>
-        <div className="column info-column">
-          <div className="single-flower-info-container card">
-            <div className="card-content">
-              <p className="has-text-centered is-size-3 is-capitalized">
-                {header}
-              </p>
-              <p className="has-text-centered">{description}</p>
-              <hr></hr>
-              <div className="tags are-medium"></div>
-              <hr></hr>
-              <h6 className="has-text-weight-semibold has-text-success is-size-4">
-                ₸{date}
-              </h6>
+      <section>
+        <div className="columns">
+          <div class="column is-half is-offset-one-quarter">
+            <h1 className="has-text-centered is-bold is-size-3 has-text-weight-semibold">
+              {header}
+            </h1>
+            <div className="columns">
+              <div class="column is-one-fifth">
+                <figure class="image is-32x32">
+                  <img
+                    class="is-rounded"
+                    src="https://avatars.io/twitter/naz"
+                    alt=""
+                  />
+                </figure>
+                <span>Альбина</span>
+                <span>{moment(date).format("MMM Do YY")}</span>
+              </div>
+              <div class="column"></div>
+              <div class="column"></div>
+              <div class="column"></div>
             </div>
+            <div className="has-text-centered">
+              <figure className="image is-16by9">
+                <img alt="" src={mainPicture} />
+              </figure>
+            </div>
+            <div>{description}</div>
           </div>
         </div>
-      </div>
+      </section>
     );
   }
 }
