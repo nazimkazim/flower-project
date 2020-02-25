@@ -3,21 +3,21 @@ import { Link } from "react-router-dom";
 import defaultImg from "../images/room-1.jpeg";
 import PropTypes from "prop-types";
 import moment from "moment";
+
 export default function Blog({ blog }) {
-  const { header, slub, extraPictures, date, description } = blog;
+  const { header, slub, date, description, mainPicture } = blog;
   return (
-    <div className="column is-full">
-      <article class="media">
-        <figure class="media-left">
-          <p class="image is-128x128">
-            <img
-              src={(extraPictures && extraPictures[0]) || defaultImg}
-              alt=""
-            />
-          </p>
-        </figure>
-        <div class="media-content">
-          <div class="content">
+    <div className="column is-three-quarters">
+      <div className="columns">
+        <div className="column is-one-fifth">
+          <figure>
+            <p className="image is-128x128">
+              <img src={(mainPicture && mainPicture) || defaultImg} alt="" />
+            </p>
+          </figure>
+        </div>
+        <div className="column auto">
+          <div className="content">
             <p>
               <strong>
                 <Link to={`/blogs/${slub}`}>{header}</Link>
@@ -28,22 +28,9 @@ export default function Blog({ blog }) {
               {description.slice(0, 300) + "..."}
             </p>
           </div>
-          <nav class="level is-mobile">
-            <div class="level-left">
-              <span class="level-item">
-                <span class="icon is-small">
-                  <i class="fas fa-retweet"></i>
-                </span>
-              </span>
-              <span class="level-item">
-                <span class="icon is-small">
-                  <i class="fas fa-heart"></i>
-                </span>
-              </span>
-            </div>
-          </nav>
         </div>
-      </article>
+      </div>
+      <hr></hr>
     </div>
   );
 }
