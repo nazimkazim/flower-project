@@ -108,6 +108,19 @@ a {
   width: 100px;
 }
 
+.single-blog-container {
+  margin-top: 50px;
+  padding: 50px;
+}
+
+.single-blog-header {
+  margin-bottom: 50px;
+}
+
+.main-picture-container {
+  margin-bottom: 50px;
+}
+
 @media screen and (max-width: 768px) {
   .hero {
     min-height: 300px;

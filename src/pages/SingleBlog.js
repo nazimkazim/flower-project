@@ -5,6 +5,7 @@ import { BlogContext } from "../contextBlog";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import moment from "moment";
+import profilePhoto from "../images/profile-photo.jpg";
 
 export default class SingleBlog extends Component {
   constructor(props) {
@@ -34,29 +35,26 @@ export default class SingleBlog extends Component {
 
     const { header, description, date, extraPictures, mainPicture } = blog;
     return (
-      <section>
+      <section className="container single-blog-container">
         <div className="columns">
           <div class="column is-half is-offset-one-quarter">
-            <h1 className="has-text-centered is-bold is-size-3 has-text-weight-semibold">
+            <h1 className="has-text-centered is-bold is-size-3 has-text-weight-semibold single-blog-header">
               {header}
             </h1>
             <div className="columns">
-              <div class="column is-one-fifth">
-                <figure class="image is-32x32">
-                  <img
-                    class="is-rounded"
-                    src="https://avatars.io/twitter/naz"
-                    alt=""
-                  />
+              <div class="column is-half">
+                <figure class="image is-128x128">
+                  <img class="is-rounded" src={profilePhoto} alt="" />
                 </figure>
-                <span>Альбина</span>
-                <span>{moment(date).format("MMM Do YY")}</span>
+                <p>Альбина</p>
+                <p>
+                  <small>{moment(date).format("MMM Do YY")}</small>
+                </p>
               </div>
               <div class="column"></div>
               <div class="column"></div>
-              <div class="column"></div>
             </div>
-            <div className="has-text-centered">
+            <div className="has-text-centered main-picture-container">
               <figure className="image is-16by9">
                 <img alt="" src={mainPicture} />
               </figure>
