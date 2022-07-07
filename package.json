@@ -7,7 +7,7 @@
     "bulma-extensions": "^6.2.7",
     "contentful": "^7.9.1",
     "install": "^0.13.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "npm": "^6.13.7",
     "radium": "^0.26.0",
     "react": "^16.9.0",
